@@ -26,17 +26,23 @@ while (true) {
   if (isNumber(amount)) {
     fs.writeFile(FILENAME, userInput + '\n', { flag: 'a+' }, (error) => {
       if (error) return console.log('Error: ', error.message);
-      console.log()
     });
   } else {
     console.log('Enter a number for the amount');
   }
 }
 
-// function utangList() {
-//   console.log('x-------------------------------------x');
-//   console.log('List of debtors and what they owe:');
-//   fs.readFile()
-// }
+function utangList() {
+  console.log('x-------------------------------------x');
+  console.log('List of debtors and what they owe:');
+  fs.readFile('debts.txt', (error, data) => {
+    if (error) {
+      console.log(error.message);
+    } else {
+      console.log(data.toString());
+      console.log('x-------------------------------------x');
+    }
+  })
+}
 
-// utangList();
+utangList();
