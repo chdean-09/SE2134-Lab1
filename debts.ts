@@ -1,3 +1,5 @@
+// Chad Denard Andrada, SE2134 Lab 1
+
 import fs from 'node:fs';
 
 import readLineSync from 'readline-sync';
