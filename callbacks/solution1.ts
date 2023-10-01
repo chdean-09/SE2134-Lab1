@@ -5,7 +5,7 @@ import fs from 'node:fs';
 
 import readLineSync from 'readline-sync';
 
-const FILENAME = 'debts.txt';
+const FILENAME = './callbacks/debts.txt';
 
 function isNumber(number: number): boolean {
   return !Number.isNaN(number);
