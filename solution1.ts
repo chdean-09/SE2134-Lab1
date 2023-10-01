@@ -1,4 +1,5 @@
 // Chad Denard Andrada, SE2134 Lab 1
+// SOLUTION 1 - Using callbacks
 
 import fs from 'node:fs';
 
@@ -25,6 +26,8 @@ while (true) {
   const [name, amountString] = userInput.split(' ');
   const amount = Number(amountString);
 
+  console.log(`${name} successfully added!`);
+
   if (isNumber(amount)) {
     fs.writeFile(FILENAME, userInput + '\n', { flag: 'a+' }, (error) => {
       if (error) return console.log('Error: ', error.message);
@@ -37,14 +40,13 @@ while (true) {
 function utangList() {
   console.log('x-------------------------------------x');
   console.log('List of debtors and what they owe:');
-  fs.readFile('debts.txt', (error, data) => {
+  fs.readFile(FILENAME, (error, data) => {
     if (error) {
       console.log(error.message);
-    } else {
-      console.log(data.toString());
-      console.log('x-------------------------------------x');
     }
-  })
+    console.log(data.toString());
+    console.log('x-------------------------------------x');
+  });
 }
 
 utangList();
