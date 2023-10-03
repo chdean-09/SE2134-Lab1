@@ -5,14 +5,14 @@ import fs from 'node:fs';
 
 import readLineSync from 'readline-sync';
 
-const FILENAME = './callbacks/debts.txt';
+const FILENAME: string = './callbacks/debts.txt';
 
 function isNumber(number: number): boolean {
   return !Number.isNaN(number);
 }
 
 while (true) {
-  const userInput = readLineSync.question('Who, and how much? ');
+  const userInput: string = readLineSync.question('Who, and how much? ');
 
   if (userInput.toLowerCase() === 'done') {
     break;
