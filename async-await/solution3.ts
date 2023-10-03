@@ -5,10 +5,18 @@ import fs from 'node:fs/promises';
 
 import readLineSync from 'readline-sync';
 
-const FILENAME = './async-await/debts3.txt';
+const FILENAME: string = './async-await/debts3.txt';
 
 function isNumber(number: number): boolean {
   return !Number.isNaN(number);
+}
+
+async function appendDebt(FILENAME: string, userInput: string) {
+  try {
+    await fs.writeFile(FILENAME, userInput + '\n', { flag: 'a+' })
+  } catch (err) {
+    console.error('Error appending debt:', err);
+  }
 }
 
 while (true) {
@@ -29,7 +37,7 @@ while (true) {
   console.log(`${name} successfully added!`);
 
   if (isNumber(amount)) {
-    fs.writeFile(FILENAME, userInput + '\n', { flag: 'a+' });
+    appendDebt(FILENAME, userInput);
   } else {
     console.log('Enter a number for the amount');
   }
